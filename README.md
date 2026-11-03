@@ -1,1 +1,17 @@
-# Biotech-App
+# Biotech Lab App on Netlify
+
+Folder layout:
+  public/index.html              the app
+  netlify/functions/presets.mjs  shared cocktail presets (Netlify Blobs)
+  netlify.toml, package.json     config
+
+Deploy (shared presets need a Git or CLI deploy, not drag-and-drop):
+  Option A (Git): push this folder to GitHub > Netlify > Add new site > Import from Git.
+                  Leave the build command empty; Netlify reads netlify.toml.
+  Option B (CLI): npm install && npx netlify-cli deploy --prod
+
+Optional PIN: Site configuration > Environment variables > add PRESET_PIN (any value),
+then redeploy. Anyone can still LOAD shared presets; saving/deleting asks for the PIN.
+
+Without the function (e.g. drag-and-drop of public/ only) the app still works fully;
+presets are then saved per computer and the badge reads "Local presets only".
